@@ -3,6 +3,11 @@ import "./App.css";
 import Progress from "./components/Progress";
 import Question from "./components/Question";
 import Answers from "./components/Answers";
+import {
+  HOOKS_QUESTIONS,
+  GENERAL_QUESTIONS,
+  STEPHEN_QUESTIONS,
+} from "./questionBank";
 
 function App() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -13,67 +18,7 @@ function App() {
 
   const [start, setStart] = useState(false);
 
-  const [questions, setQuestions] = useState([
-    {
-      id: 1,
-      question: "Which statement about Hooks is not true?",
-      answer_a:
-        "Hooks are 100% backwards-compatible and can be used side by side with classes",
-      answer_b: "Hooks are still in beta and not available yet",
-      answer_c:
-        "Hooks are completely opt-in, there's no need to rewrite existing code",
-      answer_d: "All of the above",
-      correct_answer: "b",
-    },
-    {
-      id: 2,
-      question: "Which one is not a Hook?",
-      answer_a: "useState()",
-      answer_b: "useConst()",
-      answer_c: "useReducer()",
-      answer_d: "All of the above",
-      correct_answer: "b",
-    },
-    {
-      id: 3,
-      question: "What Hook should be used for data fetching?",
-      answer_a: "useDataFetching()",
-      answer_b: "useApi()",
-      answer_c: "useEffect()",
-      answer_d: "useRequest()",
-      correct_answer: "c",
-    },
-  ]);
-
-  const StephenQuestions = [
-    {
-      id: 1,
-      question: "What is the name of Stephen's dog?",
-      answer_a: "Finn",
-      answer_b: "Jake",
-      answer_c: "Fluffy",
-      answer_d: "He doesn't have a dog",
-      correct_answer: "b",
-    },
-    {
-      id: 2,
-      question: "When is Stephen's birthday?",
-      answer_a: "January 1, 1990",
-      answer_b: "Febuary 12, 1992",
-      answer_c: "April 21, 1992",
-      answer_d: "He wasn't born",
-      correct_answer: "c",
-    },
-    {
-      id: 3,
-      question: "How many siblings does Stephen have?",
-      answer_a: "1",
-      answer_b: "2",
-      answer_c: "3",
-      answer_d: "4",
-      correct_answer: "c",
-    },
-  ];
+  const [questions, setQuestions] = useState(HOOKS_QUESTIONS);
 
   const question = questions[currentQuestion];
 
@@ -138,21 +83,30 @@ function App() {
     setShowResults(true);
   };
 
-  const startUpStephen = () => {
-    setStart(true);
-    setQuestions(StephenQuestions);
-  };
-  const startUpReact = () => {
+  const startUpHooks = () => {
     setStart(true);
     setQuestions(questions);
+  };
+
+  const startUpGeneral = () => {
+    setStart(true);
+    setQuestions(GENERAL_QUESTIONS);
+  };
+
+  const startUpStephen = () => {
+    setStart(true);
+    setQuestions(STEPHEN_QUESTIONS);
   };
 
   if (!start) {
     return (
       <div className="container results">
         <h2>Select a Quiz</h2>
-        <button className="btn btn-primary" onClick={startUpReact}>
-          React
+        <button className="btn btn-primary" onClick={startUpHooks}>
+          React Hooks
+        </button>
+        <button className="btn btn-primary" onClick={startUpGeneral}>
+          General
         </button>
         <button className="btn btn-primary" onClick={startUpStephen}>
           Silly

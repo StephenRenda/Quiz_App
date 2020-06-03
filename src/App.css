@@ -81,10 +81,11 @@ h2 {
   font-size: calc(5px + 1vmin);
   margin-top: 20px;
   cursor: pointer;
+  width: calc(30px + 40vmin);
 }
 
 .btn-primary {
   color: #4f4c4c;
   background-color: #ffc107;
-  font-weight: bold;
+  font-weight: bolder;
 }
