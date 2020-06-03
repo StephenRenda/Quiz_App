@@ -116,6 +116,7 @@ function App() {
     setCurrentAnswer("");
     setCurrentQuestion(0);
     setShowResults(false);
+    setStart(false);
   };
 
   const next = () => {
@@ -164,7 +165,7 @@ function App() {
         <h2>Results</h2>
         <ul>{renderResultData()}</ul>
         <button className="btn btn-primary" onClick={restart}>
-          Restart
+          Back to quiz select
         </button>
       </div>
     );
