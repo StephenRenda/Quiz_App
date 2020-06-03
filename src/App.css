@@ -11,12 +11,14 @@
 }
 
 div {
-  font-size: calc(10px + 1vmin);
+  font-size: calc(5px + 2vmin);
 }
 
 h1,
 h2 {
   margin: 10px;
+  margin-left: 40px;
+  margin-right: 40px;
   font-size: calc(15px + 2vmin);
 }
 
