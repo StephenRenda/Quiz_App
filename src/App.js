@@ -180,7 +180,7 @@ function App() {
           handleClick={handleClick}
         />
         <button className="btn btn-primary" onClick={next}>
-          Confirm and Continue
+          Submit
         </button>
       </div>
     );
